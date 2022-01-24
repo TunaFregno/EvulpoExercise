@@ -11,7 +11,9 @@ This repository provides the interviewees with an applied coding exercise to che
 Create a Single Choice Exercise Viewer, where you can go interact through a collection of exercises, solve them, evaluate them and get back the score. For this you can use the Google Sheet database we set for you right here:
 https://docs.google.com/spreadsheets/d/1hzA42BEzt2lPvOAePP6RLLRZKggbg0RWuxSaEwd5xLc/edit?usp=sharing
 
-[<img alt="alt_text" width="40px" src="images/single_choice.png" />]
+Visual Reference:
+
+<img alt="alt_text" width="720px" src="images/single_choice.png" />
 
 
 1. Download this repository and start a new repository on your Github account with a copy of this repo. Please DO NOT start a branch or a fork from this repository. 
