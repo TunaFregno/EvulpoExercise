@@ -11,13 +11,6 @@ This repository provides the interviewees with an applied coding exercise to che
 Create a Single Choice Exercise Viewer, where you can go interact through a collection of exercises, solve them, evaluate them and get back the score. For this you can use the Google Sheet database we set for you right here:
 https://docs.google.com/spreadsheets/d/1hzA42BEzt2lPvOAePP6RLLRZKggbg0RWuxSaEwd5xLc/edit?usp=sharing
 
-Visual Reference:
-
-<img alt="alt_text" width="720px" src="images/single_choice.png" />
-
-<img alt="alt_text" width="720px" src="images/code_challenge.gif" />
-
-
 
 1. Download this repository and start a new repository on your Github account with a copy of this repo. Please DO NOT start a branch or a fork from this repository. 
 2. Connect with the GOOGLE Sheet and retreive the data base over the API for this. We provide a small code snippet for that(see path bellow)
@@ -26,8 +19,17 @@ Visual Reference:
 5. Document your work on the repository
 6. Once you are done with your development, send me the link via Private Message on Slack to your github repository or to my email: andres@schlaufux.ch
 
+# Visual Reference:
+<img alt="alt_text" width="720px" src="images/single_choice.png" />
+<img alt="alt_text" width="300px" src="images/code_challenge.gif" />
 
-# FOCUS FOR EVALUATION
+# OUR CURRENT DEVELOPMENT REFERENCE
+
+https://ch-de.evulpo.com/lesson/245b1209-2adf-4bc6-a2f0-ae8030f3caa0/exercises/4001
+
+
+
+# FOCUS FOR EVALUATION OF THE TASK
 
 1. Communication
 2. Interactivity
@@ -46,5 +48,5 @@ https://www.npmjs.com/package/http-server
 
 
 # DEADLINE
-Thursday 27th of January 23:59 Zürich Time
+Thursday 27th of January 2022 23:59 Zürich Time
 
