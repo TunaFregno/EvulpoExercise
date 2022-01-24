@@ -13,7 +13,7 @@ https://docs.google.com/spreadsheets/d/1hzA42BEzt2lPvOAePP6RLLRZKggbg0RWuxSaEwd5
 
 Visual Reference:
 
-<img alt="alt_text" width="400px" src="images/single_choice.png" />
+<img alt="alt_text" width="720px" src="images/single_choice.png" />
 
 
 1. Download this repository and start a new repository on your Github account with a copy of this repo. Please DO NOT start a branch or a fork from this repository. 
