@@ -2,9 +2,7 @@
 Coding Task for Full Stack Developer at evulpo
 
 # PURPOSE
-This repository provides the interviewees with an applied coding exercise to checkup development, research, communication, frontend and backend skills.
-
-# during the following days you have time and space to solve the following task:
+This repository provides the interviewees with an applied coding exercise to checkup development, research, communication, frontend and backend skills. During the following days applicants have time and space to solve the task described bellow.
 
 # TASK DESCRIPTION
 
