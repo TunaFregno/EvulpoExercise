@@ -11,8 +11,8 @@ https://docs.google.com/spreadsheets/d/1hzA42BEzt2lPvOAePP6RLLRZKggbg0RWuxSaEwd5
 
 
 1. Download this repository and start a new repository on your Github account with a copy of this repo. Please DO NOT start a branch or a fork from this repository. 
-2. Connect with the GOOGLE Sheet and retreive the data base over the API for this. We provide a small code snippet for that(see path bellow)
-3. Create the small application using a simple file structure of your choice -> We provide a small sample for that (See path bellow)
+2. Connect with the GOOGLE Sheet and retreive the data base over the API for this. We provide a code sample for that (CODE_SAMPLE_DEV_DATA_CONNECTION)
+3. Create the small application using a simple file structure (index.html, main.js, style.css) -> We provide a code sample for that (CODE_SAMPLE_BASIC). You can ex
 4. Try to commit often during your development process so that we can review the changes over time.
 5. Document your work on the repository
 6. Once you are done with your development, send me the link via Private Message on Slack to your github repository or to my email: andres@schlaufux.ch
@@ -37,7 +37,7 @@ https://ch-de.evulpo.com/lesson/245b1209-2adf-4bc6-a2f0-ae8030f3caa0/exercises/4
 
 # GOOD TO KNOW
 
-Due to Cross Origin restrictions while using gapi, you need to run your application and connect to the google api (gapi) you need to start a server using npm or npx  http-server
+* Due to Cross Origin restrictions while using gapi, you need to run your application and connect to the google api (gapi) you need to start a server using npm or npx  http-server
 
 https://www.npmjs.com/package/npx-server
 
@@ -46,6 +46,9 @@ https://www.npmjs.com/package/http-server
 
 <img alt="alt_text" width="600px" src="images/http_server.png" />
 
+* we provide a reference code solving the exercise single choice for you to use as a reference (CODE_SAMPLE_BASIC)
+
+
 # DEADLINE
-Thursday 27th of January 2022 23:59 Zürich Time
+Thursday 27th of January 2022 23:59 Zürich Time. If needed upon request we can extend this deadline. 
 
