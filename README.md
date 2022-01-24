@@ -31,12 +31,11 @@ https://ch-de.evulpo.com/lesson/245b1209-2adf-4bc6-a2f0-ae8030f3caa0/exercises/4
 
 # FOCUS FOR EVALUATION OF THE TASK
 
-1. Communication
+1. Communication and Code Readability
 2. Interactivity
-3. Data Connection
-4. Saving States
-5. Process Load
-6. Front End
+3. Data Connection and States
+4. Memory Load and Performance
+5. Front End
 
 # GOOD TO KNOW
 
@@ -45,7 +44,7 @@ Due to Cross Origin restrictions while using gapi, you need to run your applicat
 https://www.npmjs.com/package/npx-server
 
 https://www.npmjs.com/package/http-server
-
+<img alt="alt_text" width="600px" src="images/http_server.png" />
 
 # DEADLINE
 Thursday 27th of January 2022 23:59 Zürich Time
