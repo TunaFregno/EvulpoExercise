@@ -11,7 +11,7 @@ https://docs.google.com/spreadsheets/d/1hzA42BEzt2lPvOAePP6RLLRZKggbg0RWuxSaEwd5
 
 
 1. Download this repository and start a new repository on your Github account with a copy of this repo. Please DO NOT start a branch or a fork from this repository. 
-2. Connect with the GOOGLE Sheet and retreive the data base over the API for this. We provide a code sample for that (CODE_SAMPLE_DEV_DATA_CONNECTION)
+2. Connect with the GOOGLE Sheet and retreive the data base over the API for this. We provide a code sample for that (CODE_SAMPLE_GAPI_CONNECTION)
 3. Create the small application using a simple file structure (index.html, main.js, style.css) -> We provide a code sample for that (CODE_SAMPLE_BASIC). You can ex
 4. Try to commit often during your development process so that we can review the changes over time.
 5. Document your work on the repository
