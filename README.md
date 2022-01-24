@@ -12,7 +12,7 @@ https://docs.google.com/spreadsheets/d/1hzA42BEzt2lPvOAePP6RLLRZKggbg0RWuxSaEwd5
 
 1. Download this repository and start a new repository on your Github account with a copy of this repo. Please DO NOT start a branch or a fork from this repository. 
 2. Connect with the GOOGLE Sheet and retreive the data base over the API for this. We provide a code sample for that (CODE_SAMPLE_GAPI_CONNECTION)
-3. Create the small web-app(website) using a simple file structure (index.html, main.js, style.css) -> We provide a code sample for that (CODE_SAMPLE_BASIC). You can ex
+3. Create the small web-app(website) using a simple file structure (index.html, main.js, style.css) -> We provide a code sample for that (CODE_SAMPLE_BASIC). Intentionally parts of the code have been deleted to avoid providing the solution but giving a hint and direction.
 4. Try to commit often during your development process so that we can review the changes over time.
 5. Document your work on the repository
 6. Once you are done with your development, send me the link via Private Message on Slack to your github repository or to my email: andres@schlaufux.ch
@@ -52,3 +52,4 @@ https://www.npmjs.com/package/http-server
 # DEADLINE
 Thursday 27th of January 2022 23:59 Zürich Time. If needed upon request we can extend this deadline. 
 
+# HAVE FUN AND GOOD LUCK!
