@@ -15,6 +15,9 @@ Visual Reference:
 
 <img alt="alt_text" width="720px" src="images/single_choice.png" />
 
+<img alt="alt_text" width="720px" src="images/code_challenge.gif" />
+
+
 
 1. Download this repository and start a new repository on your Github account with a copy of this repo. Please DO NOT start a branch or a fork from this repository. 
 2. Connect with the GOOGLE Sheet and retreive the data base over the API for this. We provide a small code snippet for that(see path bellow)
