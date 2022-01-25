@@ -4,14 +4,15 @@
 const API_KEY = 'AIzaSyDQNwROozFi8edyHduP79ZLnoMS6rWLy8E';
 const DISCOVERY_DOCS = ["https://sheets.googleapis.com/$discovery/rest?version=v4"];
 const SCOPES = "https://www.googleapis.com/auth/spreadsheets.readonly";
-let exerciseIndex;
-let exerciseData;
 let options;
-let questions = 1;
+let questionsIndex = 0;
+let history = [];
 let state = false;
 let correct_answer_index;
 let chosen_answer_index;
 let res;
+let currentScore = 0;
+
 
 document.addEventListener('DOMContentLoaded', init);
 
@@ -69,30 +70,54 @@ function getExerciseData() {
 
 
 function init(arr){
-	console.log('in the question func')
-	console.log(arr.a[questions][2])
-	let options = arr.a[questions];
+	options = arr.a[questionsIndex];
+	// Checking if we reach the end of the array to display the score.
+	if (arr.a.length === questionsIndex) {
+		let count = 0;
+		for (let i in history){
+			if (history[i] == true) {
+				count++
+			}
+		}
+		let clearSlideshow = document.querySelector('.slideshow');
+		let clearButton = document.querySelector('#evaluate');
+		
+		clearSlideshow.innerHTML = `<p class="question">You completed ${count} and your score is ${currentScore}</p>`;
+		clearButton.outerHTML = `<button id="evaluate" onclick="location.reload()">Retry?</button>`;
+		
+		return null;
+	}
+	// Obtaining the Index of correct answers
 	correct_answer_index = options[4];
-	//console.log(correct_answer_index);
+	// Selecting ID tagets
 	let questionDisplay = document.querySelector('#question-wrapper');
 	let optionsContainer=document.querySelector('#options-wrapper');
-
+	//cleaning  the question and options display
+	questionDisplay.innerHTML= '';
+	optionsContainer.innerHTML= '';
+	
+	// Populating the questions and options
 	questionDisplay.innerHTML+= `<p> ${options[2]}</p>`
 	
 	for(let i = 0; i< options[3].split(';').length; i++){
 		optionsContainer.innerHTML+= `<div id="myChoice${i}"class='unchosen option' onclick="toggleChoice(${i})"><p class='text'> ${options[3].split(';')[i]} </p></div>`
 	}
-	// ...
+	
 }
 
 
 function toggleChoice(i){
-	
-	console.log('hello' + i)
+	//console.log('hello' + i)
+	// Prevents from selection visualy other options 
+	if (state == true) return null;
+	// Set current answer
 	chosen_answer_index = i;
+	// Verifying if chosen answer already exist, if yes, removing previous selection
 	if( document.querySelector(".chosen") != null) {
 		document.querySelector(".chosen").classList.remove("chosen");
 	} 
+
+	// Adding "chosen" class to the selected answer
 	let selectedOption = document.querySelector(`#myChoice${i}`);
 	selectedOption.classList.add("chosen");
 	
@@ -115,33 +140,56 @@ function upload() {
 }
 
 function myEvaluation(){
+	// Selecting ID tagets
+	let evMessage = document.querySelector('#evaluation-message');
+	let buttonText = document.querySelector("#evaluate").firstChild; 
 
 	//upload()
 	//let selectBody = document.querySelector(".bodx")
 	//selectBody.classList.add("changeBody");
-	console.log('an evaluation function place holder');
-	let evMessage = document.querySelector('#evaluation-message');
-	let buttonText = document.querySelector("#evaluate").firstChild;
 
+	console.log('an evaluation function place holder');
+	
+	
+
+	// Changing to the next set of questions based on the state
 	if (state === true) {
 		buttonText.textContent = "Check";
+		// reseting the message
+		evMessage.innerHTML = '';
 		state = false;
-		questions++
+		questionsIndex++;
 		init(res)
 		return null;
 	}
 
+	//Displaying the result of the choosen answer
 	if (correct_answer_index == chosen_answer_index) {
 		evMessage.innerHTML = '<p>Awesome!</p>';
+		history.push(true);
+		currentScore += parseInt(res.a[questionsIndex][5]);
+		
 
 	} else {
-		evMessage.innerHTML = '<p>Keep trying!</p>';
-			// console.log('tryAgain')
+
+		// Verifying if we didn't choose and answer 
+		if( document.querySelector(".chosen") == null) {
+			evMessage.innerHTML = "<p>Wrong answer. You didn't choose anything.</p>";
+			//return null;
+		}
+		else {
+			evMessage.innerHTML = '<p>Keep trying!</p>';
+		}
+
+		history.push(false);
+		// console.log('tryAgain')
 
 	}
 
-	buttonText.textContent  = "Next Question"
+	// Comunicating next action and avoiding reselection of an answer.
 	state = true;
+	buttonText.textContent  = "Next Question"
+	
 }
 
 
