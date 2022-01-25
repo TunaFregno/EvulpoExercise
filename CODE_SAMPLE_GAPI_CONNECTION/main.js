@@ -31,19 +31,83 @@ function getExerciseData() {
 	  spreadsheetId: '1hzA42BEzt2lPvOAePP6RLLRZKggbg0RWuxSaEwd5xLc',
 	  range: 'Learning!A1:F10',
 	}).then(function(response) {
+		console.log('in the response')
 		console.log(response);
-		console.log(response.result.values);
+		//let res = {
+		//	a: response.result.values
+		//};
+		//init(res)
 	}, function(response) {
 		console.log('Error: ' + response.result.error.message);
 	});
 }
 
-function toggleChoice(index){
-	console.log('toggling choices function place holder')
+document.addEventListener('DOMContentLoaded', init)
+
+function init(){
+	//let options = arr.a;
+
+	let options = ['this','this not', 'this either']
+	//let answerOptions = [];
+	let listofOptions = [];
+	let optionsContainer=document.querySelector('#options-wrapper')
+
+	//for(let i = 0; i< options.length; i++){
+	//	answerOptions.push(options[i][3])
+	//}
+
+
+	for(let i = 0; i< options.length; i++){
+		optionsContainer.innerHTML+= `<div class='unchosen option' onclick="toggleChoice(${i})"><p class='text'> ${options[i]} </p></div>`
+	}
+
 }
 
+function toggleChoice(i){
+	states[i]=true
+	console.log('hello')
+	let selectedOption = document.querySelector(".option")
+	selectedOption.classList.add("chosen");
+}
+
+
+function upload() {
+
+	var elem = document.getElementById("myBar");  
+	var width = 1;
+	var id = setInterval(frame, 10);
+	function frame() {
+	  if (width >= 100) {
+		clearInterval(id);
+	  } else {
+		width++; 
+		elem.style.width = width + '%'; 
+	  }
+	
+	}
+}
 
 function myEvaluation(){
+
+	upload()
+	let selectBody = document.querySelector(".bodx")
+	selectBody.classList.add("changeBody");
+
 	console.log('an evaluation function place holder')
+	let evMessage = document.querySelector('#evaluation-message')
+	for(let i = 0; i<options.length; i++){
+		if(states[i] && i == correct_answer_index){
+			evMessage.innerHTML = '<p>Awesome!</p>'
+			// console.log('awesome')
+			break
+		}
+		else{
+			evMessage.innerHTML = '<p>Keep trying!</p>'
+			// console.log('tryAgain')
+			break
+		}
+	}
 }
+
+
 

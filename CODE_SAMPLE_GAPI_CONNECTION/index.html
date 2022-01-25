@@ -4,24 +4,33 @@
 <title>Evulpo Exercise Test</title>
 <meta name="description" content="exercise test full stack developer interview">
 <meta name="keywords" content="single-choice exercise basic-data-connection">
-
+<link href="https://fonts.googleapis.com/css2?family=Passion+One&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
-<body>
-	<p id="question" class="question"> Which is the correct option? </p>
-	<div id="options-wrapper">
+<body class="body">
+
+	<div class="contentbox">
+
 		
+
+		<div class="slideshow">
+			<p class="question"> Which is the correct option?</p>
+			<div id="question-wrapper"> </div>
+			<div id="options-wrapper"></div>
+		</div>
+
+		<button id="evaluate" onclick="myEvaluation()">Check</button>
+		<div id="evaluation-message"></div>
+
+
+		<button id="next" onClick="window.location.reload();" style="display:none;">Next random question</button>
+
+    	<script async defer src="https://apis.google.com/js/api.js"
+      		onload="this.onload=function(){};handleClientLoad()"
+      		onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    	</script>
+		
+		<script src="main.js" type="text/javascript"></script>
 	</div>
-
-	<button id="evaluate" onclick="myEvaluation()">Evaluate!</button>
-	<div id="evaluation-message"></div>
-
-	<button id="next" onClick="window.location.reload();" style="display:none;">Next random question</button>
-
-    <script async defer src="https://apis.google.com/js/api.js"
-      onload="this.onload=function(){};handleClientLoad()"
-      onreadystatechange="if (this.readyState === 'complete') this.onload()">
-    </script>
-	<script src="main.js" type="text/javascript"></script>
 </body>
 </html>

@@ -26,10 +26,11 @@ function init(){
 
 }
 
-function toggleChoice(i){
+function toggleChoice(index){
 	states[i]=true
 	console.log('hello')
-	let selectedOption = document.querySelector(".chosen").style.border = "4px solid rgb(88, 86, 86);"
+	let selectedOption = document.querySelector(".option")
+	selectedOption.classList.add("chosen");
 	// ...
 }
 
