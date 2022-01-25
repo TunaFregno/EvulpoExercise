@@ -7,9 +7,13 @@ const SCOPES = "https://www.googleapis.com/auth/spreadsheets.readonly";
 let exerciseIndex;
 let exerciseData;
 let options;
-let states = [];
+let questions = 1;
+let state = false;
 let correct_answer_index;
 let chosen_answer_index;
+let res;
+
+document.addEventListener('DOMContentLoaded', init);
 
 function handleClientLoad() {
 	gapi.load('client', initClient);
@@ -26,50 +30,73 @@ function initClient() {
 	});
 }
 
+function shuffle(array) {
+	let currentIndex = array.length,  randomIndex;
+  
+	// While there remain elements to shuffle...
+	while (currentIndex != 0) {
+  
+	  // Pick a remaining element...
+	  randomIndex = Math.floor(Math.random() * currentIndex);
+	  currentIndex--;
+  
+	  // And swap it with the current element.
+	  [array[currentIndex], array[randomIndex]] = [
+		array[randomIndex], array[currentIndex]];
+	}
+  
+	return array;
+}
+  
+
 function getExerciseData() {
 	gapi.client.sheets.spreadsheets.values.get({
 	  spreadsheetId: '1hzA42BEzt2lPvOAePP6RLLRZKggbg0RWuxSaEwd5xLc',
 	  range: 'Learning!A1:F10',
 	}).then(function(response) {
-		console.log('in the response')
-		console.log(response);
-		//let res = {
-		//	a: response.result.values
-		//};
-		//init(res)
+		//console.log('in the response')
+		//console.log(response);
+		//console.log(response.result.values.splice(1));
+		res = {
+			a: shuffle(response.result.values.splice(1))
+		};
+		init(res)
+
 	}, function(response) {
 		console.log('Error: ' + response.result.error.message);
 	});
 }
 
-document.addEventListener('DOMContentLoaded', init)
 
-function init(){
-	//let options = arr.a;
+function init(arr){
+	console.log('in the question func')
+	console.log(arr.a[questions][2])
+	let options = arr.a[questions];
+	correct_answer_index = options[4];
+	//console.log(correct_answer_index);
+	let questionDisplay = document.querySelector('#question-wrapper');
+	let optionsContainer=document.querySelector('#options-wrapper');
 
-	let options = ['this','this not', 'this either']
-	//let answerOptions = [];
-	let listofOptions = [];
-	let optionsContainer=document.querySelector('#options-wrapper')
-
-	//for(let i = 0; i< options.length; i++){
-	//	answerOptions.push(options[i][3])
-	//}
-
-
-	for(let i = 0; i< options.length; i++){
-		optionsContainer.innerHTML+= `<div class='unchosen option' onclick="toggleChoice(${i})"><p class='text'> ${options[i]} </p></div>`
+	questionDisplay.innerHTML+= `<p> ${options[2]}</p>`
+	
+	for(let i = 0; i< options[3].split(';').length; i++){
+		optionsContainer.innerHTML+= `<div id="myChoice${i}"class='unchosen option' onclick="toggleChoice(${i})"><p class='text'> ${options[3].split(';')[i]} </p></div>`
 	}
-
+	// ...
 }
+
 
 function toggleChoice(i){
-	states[i]=true
-	console.log('hello')
-	let selectedOption = document.querySelector(".option")
+	
+	console.log('hello' + i)
+	chosen_answer_index = i;
+	if( document.querySelector(".chosen") != null) {
+		document.querySelector(".chosen").classList.remove("chosen");
+	} 
+	let selectedOption = document.querySelector(`#myChoice${i}`);
 	selectedOption.classList.add("chosen");
+	
 }
-
 
 function upload() {
 
@@ -89,24 +116,32 @@ function upload() {
 
 function myEvaluation(){
 
-	upload()
-	let selectBody = document.querySelector(".bodx")
-	selectBody.classList.add("changeBody");
+	//upload()
+	//let selectBody = document.querySelector(".bodx")
+	//selectBody.classList.add("changeBody");
+	console.log('an evaluation function place holder');
+	let evMessage = document.querySelector('#evaluation-message');
+	let buttonText = document.querySelector("#evaluate").firstChild;
 
-	console.log('an evaluation function place holder')
-	let evMessage = document.querySelector('#evaluation-message')
-	for(let i = 0; i<options.length; i++){
-		if(states[i] && i == correct_answer_index){
-			evMessage.innerHTML = '<p>Awesome!</p>'
-			// console.log('awesome')
-			break
-		}
-		else{
-			evMessage.innerHTML = '<p>Keep trying!</p>'
-			// console.log('tryAgain')
-			break
-		}
+	if (state === true) {
+		buttonText.textContent = "Check";
+		state = false;
+		questions++
+		init(res)
+		return null;
 	}
+
+	if (correct_answer_index == chosen_answer_index) {
+		evMessage.innerHTML = '<p>Awesome!</p>';
+
+	} else {
+		evMessage.innerHTML = '<p>Keep trying!</p>';
+			// console.log('tryAgain')
+
+	}
+
+	buttonText.textContent  = "Next Question"
+	state = true;
 }
 
 

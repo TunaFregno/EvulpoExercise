@@ -8,15 +8,8 @@ let options = ['this','this not', 'this either']
 let states = [false,false,false]
 let correct_answer_index= 0
 
-document.addEventListener('DOMContentLoaded', question)
-document.addEventListener('DOMContentLoaded', init)
 
-function question(){
-	let questionDisplay = document.querySelector('#question-wrapper')
-	questionDisplay.innerHTML+= "<p> Parts of speech indicate when something happened.</p>"
-	
-	// ...
-}
+document.addEventListener('DOMContentLoaded', init)
 
 function init(){
 	let optionsContainer=document.querySelector('#options-wrapper')
