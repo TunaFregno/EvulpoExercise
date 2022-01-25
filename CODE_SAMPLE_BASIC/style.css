@@ -1,29 +1,91 @@
-.question{
-	font-weight: bold;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.unchosen{
-	transition: all 0.15s;
-	border-style: solid ;
-	border-width: 2px;
-}
-.chosen{
-	transition: all 0.15s;
-	border-style: solid  ;
-	border-width: 4px;
 
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  color: #636363;
 }
-.option{
-	width: 100px;
-	height: 50px;
-	 border-radius: 25px;
-	 padding-left:auto;
-	 padding-right:auto;
-	 margin-top:2px;
-}
-.text{
-	font-weight: bold;
-	font-size:16px;
-	color:#0000ff;
-	text-align: center;
 
+.contentbox {
+  /*border: solid rgb(0, 255, 34);*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 100%;
+}
+
+.slideshow {
+  /*border: solid red;*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  max-height: 80%;
+  min-height: 200px;
+  width: 80%;
+  margin: 20% 0;
+}
+.question {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+#options-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#evaluate {
+  border: 2px solid rgb(75, 158, 75);
+  background: none;
+  padding: 1% 3%;
+  border-radius: 14px;
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: rgb(75, 158, 75);
+  cursor: pointer;
+}
+
+#evaluate:hover {
+  background-color: rgb(75, 158, 75);
+  color: white;
+}
+
+.unchosen {
+  border: solid green;
+  transition: all 0.15s;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.chosen {
+  border: solid purple;
+  transition: all 0.15s;
+  border-style: solid;
+  border-width: 4px;
+}
+.option {
+  border: 4px solid rgba(240, 240, 240);
+  width: auto;
+  border-radius: 35px;
+  margin: 1.5%;
+  padding: 1% 3%;
+  cursor: pointer;
+}
+.text {
+  font-weight: 500;
+  font-size: 1.4rem;
+  text-align: center;
+  width: 100%;
 }
