@@ -15,7 +15,21 @@ let currentScore = 0;
 
 
 document.addEventListener('DOMContentLoaded', init);
+let openBtn = document.getElementById('open');
+let closeBtn = document.getElementById('close');
+let modalContainer = document.querySelector('.modal-container');
 
+//PopUp for the messages
+openBtn.addEventListener('click', function(){
+	modalContainer.classList.add('show');
+})
+
+closeBtn.addEventListener('click', function(){
+	modalContainer.classList.remove('show')
+})
+
+
+//Callling the gapi
 function handleClientLoad() {
 	gapi.load('client', initClient);
 }
@@ -80,10 +94,10 @@ function init(arr){
 			}
 		}
 		let clearSlideshow = document.querySelector('.slideshow');
-		let clearButton = document.querySelector('#evaluate');
+		let clearButton = document.querySelector('.evaluate');
 		
 		clearSlideshow.innerHTML = `<p class="question">You completed ${count} and your score is ${currentScore}</p>`;
-		clearButton.outerHTML = `<button id="evaluate" onclick="location.reload()">Retry?</button>`;
+		clearButton.outerHTML = `<button class="evaluate" onclick="location.reload()">Retry?</button>`;
 		
 		return null;
 	}
@@ -123,26 +137,12 @@ function toggleChoice(i){
 	
 }
 
-function upload() {
-
-	var elem = document.getElementById("myBar");  
-	var width = 1;
-	var id = setInterval(frame, 10);
-	function frame() {
-	  if (width >= 100) {
-		clearInterval(id);
-	  } else {
-		width++; 
-		elem.style.width = width + '%'; 
-	  }
-	
-	}
-}
 
 function myEvaluation(){
 	// Selecting ID tagets
 	let evMessage = document.querySelector('#evaluation-message');
-	let buttonText = document.querySelector("#evaluate").firstChild; 
+	let buttonText = document.querySelector(".evaluate").firstChild;
+
 
 	//upload()
 	//let selectBody = document.querySelector(".bodx")
@@ -174,7 +174,7 @@ function myEvaluation(){
 
 		// Verifying if we didn't choose and answer 
 		if( document.querySelector(".chosen") == null) {
-			evMessage.innerHTML = "<p>Wrong answer. You didn't choose anything.</p>";
+			evMessage.innerHTML = "<p>Wrong answer. <br> You didn't choose an option.</p>";
 			//return null;
 		}
 		else {
@@ -185,6 +185,7 @@ function myEvaluation(){
 		// console.log('tryAgain')
 
 	}
+	
 
 	// Comunicating next action and avoiding reselection of an answer.
 	state = true;
