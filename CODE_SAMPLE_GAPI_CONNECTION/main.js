@@ -15,18 +15,21 @@ let currentScore = 0;
 
 
 document.addEventListener('DOMContentLoaded', init);
-let openBtn = document.getElementById('open');
-let closeBtn = document.getElementById('close');
+let openBtn = document.querySelector('.open');
 let modalContainer = document.querySelector('.modal-container');
+let buttonEval = document.querySelector(".evaluate");
+let popUp = document.querySelector(".popInfo");
+let questionLoad = document.querySelector(".question");
 
 //PopUp for the messages
 openBtn.addEventListener('click', function(){
-	modalContainer.classList.add('show');
+	if (state === true ) modalContainer.classList.add('show');
 })
 
-closeBtn.addEventListener('click', function(){
+function popUpClose() {
 	modalContainer.classList.remove('show')
-})
+}
+	
 
 
 //Callling the gapi
@@ -112,11 +115,22 @@ function init(arr){
 	
 	// Populating the questions and options
 	questionDisplay.innerHTML+= `<p> ${options[2]}</p>`
+
 	
 	for(let i = 0; i< options[3].split(';').length; i++){
-		optionsContainer.innerHTML+= `<div id="myChoice${i}"class='unchosen option' onclick="toggleChoice(${i})"><p class='text'> ${options[3].split(';')[i]} </p></div>`
+		optionsContainer.innerHTML+= `<div id="myChoice${i}"class='unchosen option' onclick="toggleChoice(${i})"><p class='text'> ${options[3].split(';')[i]} </p></div>`;
 	}
+
+	buttonEval.classList.remove('hidden')
+
+	// Loading the main question after having the data 
+	questionLoad.innerHTML= 'Which is the correct option?';
 	
+	//Creating a Pop up with extra info
+	popUp.innerHTML = `The topic is ${options[0]}. This question is the ${questionsIndex + 1} of ${arr.a.length}. And it has a score of ${options[5]}.`;
+
+	
+
 }
 
 
@@ -141,7 +155,7 @@ function toggleChoice(i){
 function myEvaluation(){
 	// Selecting ID tagets
 	let evMessage = document.querySelector('#evaluation-message');
-	let buttonText = document.querySelector(".evaluate").firstChild;
+	let buttonText = buttonEval.firstChild;
 
 
 	//upload()
@@ -159,26 +173,28 @@ function myEvaluation(){
 		evMessage.innerHTML = '';
 		state = false;
 		questionsIndex++;
+		buttonEval.classList.remove('next-botton')
 		init(res)
 		return null;
 	}
 
 	//Displaying the result of the choosen answer
 	if (correct_answer_index == chosen_answer_index) {
-		evMessage.innerHTML = '<p>Awesome!</p>';
+		evMessage.innerHTML = '<p>Awesome!</p> <button id="close" onclick="popUpClose()">Close</button>';
 		history.push(true);
 		currentScore += parseInt(res.a[questionsIndex][5]);
-		
+		chosen_answer_index = -1;
 
 	} else {
 
 		// Verifying if we didn't choose and answer 
 		if( document.querySelector(".chosen") == null) {
-			evMessage.innerHTML = "<p>Wrong answer. <br> You didn't choose an option.</p>";
+			evMessage.innerHTML = '<p>Wrong answer. <br> You did not choose an option.</p> <button id="close" onclick="popUpClose()">Close</button>';
+			
 			//return null;
 		}
 		else {
-			evMessage.innerHTML = '<p>Keep trying!</p>';
+			evMessage.innerHTML = '<p>Keep trying!</p> <button id="close" onclick="popUpClose()">Close</button>';
 		}
 
 		history.push(false);
@@ -190,6 +206,7 @@ function myEvaluation(){
 	// Comunicating next action and avoiding reselection of an answer.
 	state = true;
 	buttonText.textContent  = "Next Question"
+	buttonEval.classList.add('next-botton')
 	
 }
 
