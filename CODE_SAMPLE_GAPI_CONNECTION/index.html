@@ -10,12 +10,30 @@
 </head>
 <body class="body">
 
+	<div class="area" >
+		<ul class="circles">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+		</ul>
+	</div >
+
 	<img class="background-streach" src="/images/Component-streach.svg" alt="background">
 	<img class="background-normal" src="/images/Component.svg" alt="background">
 
-	<div class="contentbox">
+	<div class="contentbox" >
 		
-		<!--<div class="popInfo"></div>-->
+		<div id="element-delay" class="upperMsg">
+			<img id="element-delay" class="infoIcon" src="/images/information-button.png" alt="infoIcon">
+			<div class="popInfo"> </div>
+		</div>
 
 		<div class="slideshow">
 			<p class="question"></p>
@@ -23,7 +41,10 @@
 			<div id="options-wrapper"></div>
 		</div>
 
+		
 		<button class="evaluate open hidden" onclick="myEvaluation()">Check</button>
+		
+
 		<div class=modal-container>
 			<div class="modal" id="evaluation-message">	</div>	
 		</div>

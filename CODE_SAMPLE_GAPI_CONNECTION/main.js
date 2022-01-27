@@ -5,7 +5,7 @@ const API_KEY = 'AIzaSyDQNwROozFi8edyHduP79ZLnoMS6rWLy8E';
 const DISCOVERY_DOCS = ["https://sheets.googleapis.com/$discovery/rest?version=v4"];
 const SCOPES = "https://www.googleapis.com/auth/spreadsheets.readonly";
 let options;
-let questionsIndex = 0;
+let questionsIndex = 8;
 let history = [];
 let state = false;
 let correct_answer_index;
@@ -20,6 +20,8 @@ let modalContainer = document.querySelector('.modal-container');
 let buttonEval = document.querySelector(".evaluate");
 let popUp = document.querySelector(".popInfo");
 let questionLoad = document.querySelector(".question");
+let upperMsg = document.querySelector(".upperMsg")
+
 
 //PopUp for the messages
 openBtn.addEventListener('click', function(){
@@ -96,12 +98,17 @@ function init(arr){
 				count++
 			}
 		}
+
 		let clearSlideshow = document.querySelector('.slideshow');
 		let clearButton = document.querySelector('.evaluate');
+		let celebration = document.querySelector('.body');
+
 		
-		clearSlideshow.innerHTML = `<div class="question"> <p class="anim-typewriter" id="finalMsg"> You completed ${count} </p> <p class="anim-typewriter"  id="finalMsg-score">Your score was ${currentScore}</p></div>`;
-		clearButton.outerHTML = `<button class="evaluate retry" onclick="location.reload()">Retry?</button>`;
-		
+		upperMsg.innerHTML = '<p id="topMsg">That was a good run!<p>';
+		clearSlideshow.innerHTML = `<div class="question"> <p class="anim-typewriter" id="finalMsg"> You completed ${count} </p> <p  id="finalMsg-score">You had a score of ${currentScore}</p></div>`;
+		clearButton.outerHTML = `<button class="evaluate retry" id="element-delay" onclick="location.reload()">Retry?</button>`;
+		celebration.innerHTML += '<div class="confetti"> <div class="confetti-piece"></div> <div class="confetti-piece"></div> <div class="confetti-piece"></div> <div class="confetti-piece"></div><div class="confetti-piece"></div> <div class="confetti-piece"></div> <div class="confetti-piece"></div> <div class="confetti-piece"></div> <div class="confetti-piece"></div> <div class="confetti-piece"></div> <div class="confetti-piece"></div> <div class="confetti-piece"></div> <div class="confetti-piece"></div></div>'
+
 		return null;
 	}
 	// Obtaining the Index of correct answers
@@ -121,15 +128,13 @@ function init(arr){
 		optionsContainer.innerHTML+= `<div id="myChoice${i}"class='unchosen option' onclick="toggleChoice(${i})"><p class='text'> ${options[3].split(';')[i]} </p></div>`;
 	}
 
-	buttonEval.classList.remove('hidden')
+	buttonEval.classList.remove('hidden');
 
 	// Loading the main question after having the data 
 	questionLoad.innerHTML= 'Which is the correct option?';
 	
 	//Creating a Pop up with extra info
 	popUp.innerHTML = `The topic is ${options[0]}. This question is the ${questionsIndex + 1} of ${arr.a.length}. And it has a score of ${options[5]}.`;
-
-	
 
 }
 
@@ -180,7 +185,7 @@ function myEvaluation(){
 
 	//Displaying the result of the choosen answer
 	if (correct_answer_index == chosen_answer_index) {
-		evMessage.innerHTML = '<p>Awesome!</p> <button id="close" onclick="popUpClose()">Close</button>';
+		evMessage.innerHTML = '<p>Warning:<br><br> You are too good at this! <br> /(ㆆ◡ㆆ)/ </p> <button id="close" onclick="popUpClose()">Close</button>';
 		history.push(true);
 		currentScore += parseInt(res.a[questionsIndex][5]);
 		chosen_answer_index = -1;
@@ -189,12 +194,12 @@ function myEvaluation(){
 
 		// Verifying if we didn't choose and answer 
 		if( document.querySelector(".chosen") == null) {
-			evMessage.innerHTML = '<p>Wrong answer. <br> You did not choose an option.</p> <button id="close" onclick="popUpClose()">Close</button>';
+			evMessage.innerHTML = '<p>Error:<br><br>Wrong answer. <br> You did not choose an option. <br> (ㆆ_ㆆ) </p> <button id="close" onclick="popUpClose()">Close</button>';
 			
 			//return null;
 		}
 		else {
-			evMessage.innerHTML = '<p>Keep trying!</p> <button id="close" onclick="popUpClose()">Close</button>';
+			evMessage.innerHTML = '<p> Information: <br><br>Keep trying, you can do it! <br> (ò ^ ó)/ </p> <button id="close" onclick="popUpClose()">Close</button>';
 		}
 
 		history.push(false);
