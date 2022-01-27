@@ -1,0 +1,57 @@
+/*BUTTON CHECK, NEXT, RETRY*/
+
+/*BUTTON*/
+
+#button-container {
+  /*border: solid; /**/
+  display: flex;
+  width: 78%;
+  height: 16%;
+}
+
+.evaluate {
+  border: 2px solid #56b8f1;
+  background: #56b8f1;
+  padding: 2% 2%;
+  margin-right: 38%;
+  width: 40%;
+  height: 9%;
+  border-radius: 14px;
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 12px 16px 15px -1px rgba(0, 0, 0, 0.151);
+}
+
+.evaluate:hover {
+  background-color: #2cc592;
+  border: 2px solid #2cc592;
+  color: white;
+}
+
+.evaluate:active {
+  box-shadow: none;
+}
+
+/*NEXT BUTTON */
+
+.next-botton {
+  background-color: rgb(238, 219, 46);
+  color: white;
+  border: none;
+}
+
+.next-botton:hover {
+  background-color: rgb(243, 235, 158);
+  border: none;
+  color: white;
+}
+
+/*RETRY*/
+
+.retry {
+  overflow: hidden;
+  animation: 2.2s anim-lineUp ease-out;
+  z-index: 9999;
+}

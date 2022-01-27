@@ -1,0 +1,70 @@
+.modal-container {
+  background-color: rgba(182, 182, 182, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, linear 300ms, opacity 300ms;
+}
+
+.show {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s, linear 0s, opacity 300ms;
+}
+
+.modal {
+  background-image: url("/images/windowsM.svg");
+  background-repeat: no-repeat;
+  width: 45%;
+  height: 47%;
+  margin-top: 18%;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0px 23px 30px -30px rgba(0, 0, 0, 0.97);
+}
+
+.modal p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #1f1e1e;
+  font-size: 30px;
+  margin: 6%;
+}
+
+#close {
+  font-weight: 700;
+  font-size: 18px;
+  color: #fdfdfd;
+  background-color: #e74747;
+  border: solid #be3a3a;
+  border-radius: 5px;
+  width: 20%;
+  padding: 1% 2%;
+  box-shadow: -2px 13px 18px -15px rgba(0, 0, 0, 0.459);
+}
+
+#close:hover {
+  color: #fdfdfd;
+  background-color: #f54e4e;
+  border: solid #da4343;
+  cursor: pointer;
+}
+
+#close:active {
+  background-color: #f54e4e;
+  border: solid #da4343;
+  cursor: pointer;
+  box-shadow: none;
+}

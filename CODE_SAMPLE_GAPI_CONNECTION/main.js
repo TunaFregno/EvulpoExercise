@@ -5,7 +5,7 @@ const API_KEY = 'AIzaSyDQNwROozFi8edyHduP79ZLnoMS6rWLy8E';
 const DISCOVERY_DOCS = ["https://sheets.googleapis.com/$discovery/rest?version=v4"];
 const SCOPES = "https://www.googleapis.com/auth/spreadsheets.readonly";
 let options;
-let questionsIndex = 8;
+let questionsIndex = 0;
 let history = [];
 let state = false;
 let correct_answer_index;
@@ -104,15 +104,17 @@ function init(arr){
 		let celebration = document.querySelector('.body');
 
 		
-		upperMsg.innerHTML = '<p id="topMsg">That was a good run!<p>';
+		upperMsg.innerHTML = '<p id="topMsg">That was a Good Run!<p>';
 		clearSlideshow.innerHTML = `<div class="question"> <p class="anim-typewriter" id="finalMsg"> You completed ${count} </p> <p  id="finalMsg-score">You had a score of ${currentScore}</p></div>`;
 		clearButton.outerHTML = `<button class="evaluate retry" id="element-delay" onclick="location.reload()">Retry?</button>`;
 		celebration.innerHTML += '<div class="confetti"> <div class="confetti-piece"></div> <div class="confetti-piece"></div> <div class="confetti-piece"></div> <div class="confetti-piece"></div><div class="confetti-piece"></div> <div class="confetti-piece"></div> <div class="confetti-piece"></div> <div class="confetti-piece"></div> <div class="confetti-piece"></div> <div class="confetti-piece"></div> <div class="confetti-piece"></div> <div class="confetti-piece"></div> <div class="confetti-piece"></div></div>'
 
 		return null;
 	}
+
 	// Obtaining the Index of correct answers
 	correct_answer_index = options[4];
+
 	// Selecting ID tagets
 	let questionDisplay = document.querySelector('#question-wrapper');
 	let optionsContainer=document.querySelector('#options-wrapper');
@@ -206,7 +208,6 @@ function myEvaluation(){
 		// console.log('tryAgain')
 
 	}
-	
 
 	// Comunicating next action and avoiding reselection of an answer.
 	state = true;
