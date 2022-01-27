@@ -96,110 +96,94 @@
     background: none;
   }
   .modal {
-    width: 85%;
-    height: 28.5%;
+    width: 70%;
     box-shadow: none;
+    padding-top: 2.5%;
   }
 
   .modal p {
-    font-size: 0.8rem;
-  }
-
-  #close {
-    top: 53%;
-    font-weight: 700;
-    font-size: 0.7rem;
-    width: 16%;
-    padding: 1% 2%;
-  }
-
-  .fox-icon {
-    display: none;
-  }
-}
-
-@media only screen and (min-device-width: 390px) and (max-device-width: 851px) {
-  .modal {
-    height: 23.5%;
-    margin-top: 68%;
-  }
-
-  #close {
-    top: 47%;
-    font-size: 0.6rem;
-  }
-}
-
-@media only screen and (device-width: 1536px) {
-  .background-normal {
-    width: 85%;
-  }
-
-  .question {
-    font-size: 1.5rem;
-  }
-
-  #question-wrapper {
-    margin: 2% 0;
-    font-size: 1.5rem;
-  }
-
-  #options-wrapper {
-    width: 100%;
-  }
-
-  .option p {
-    font-size: normal;
-  }
-
-  .modal {
-    margin-top: 20%;
-  }
-
-  #close {
-    top: 47%;
     font-size: 0.6rem;
   }
 
   .fox-icon {
-    top: 17%;
-    right: 2.6%;
-    min-height: 60%;
-    width: 730px;
+    top: 45%;
+    left: 50%;
+    width: 210px;
   }
 }
 
-@media only screen and (max-device-width: 1440px) and (max-width: 1440px) {
-  .question {
-    font-size: 1.5rem;
-  }
-
-  #question-wrapper {
-    margin: 2% 0;
-    font-size: 1.5rem;
-  }
-
-  #options-wrapper {
-    width: 100%;
-  }
-
-  .option p {
-    font-size: small;
-  }
-
+@media only screen and (min-device-width: 370px) and (max-device-height: 851px) {
   .modal {
-    margin-top: 20%;
+    height: 30%;
+    margin-top: 26%;
+    height: 50%;
   }
 
   #close {
-    top: 47%;
-    font-size: 0.6rem;
+    font-size: 0.5rem;
+  }
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-height: 896px) {
+  .modal {
+    height: 20%;
+    margin-top: 1%;
+  }
+
+  #close {
+    font-size: 0.5rem;
+  }
+}
+
+@media only screen and (min-device-width: 390px) and (max-device-height: 896px) {
+  .modal {
+    height: 20%;
+    margin-top: 2%;
+  }
+  #close {
+    font-size: 0.5rem;
+  }
+}
+
+@media only screen and (min-device-width: 360px) and (max-device-height: 740px) {
+  .modal {
+    height: 20%;
+    margin-top: 2%;
+  }
+}
+
+@media only screen and (min-device-width: 412px) and (max-device-height: 915px) {
+  .modal {
+    height: 20%;
+    margin-top: 2%;
+  }
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1536px) {
+  .modal {
+    height: 50%;
+  }
+
+  .modal p {
+    font-size: 1.5rem;
   }
 
   .fox-icon {
-    top: 17%;
-    right: 6%;
-    min-height: 60%;
-    width: 660px;
+    right: 3.5%;
+    top: 13%;
+    width: 770px;
+  }
+}
+
+@media only screen and (min-device-width: 1366px) and (max-device-height: 768px) {
+  .modal {
+    height: 50%;
+    margin-top: 16%;
+  }
+
+  .fox-icon {
+    right: 3.5%;
+    top: 13%;
+    width: 680px;
   }
 }
