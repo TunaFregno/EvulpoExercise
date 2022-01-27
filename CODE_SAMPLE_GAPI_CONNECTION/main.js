@@ -99,8 +99,8 @@ function init(arr){
 		let clearSlideshow = document.querySelector('.slideshow');
 		let clearButton = document.querySelector('.evaluate');
 		
-		clearSlideshow.innerHTML = `<p class="question">You completed ${count} and your score is ${currentScore}</p>`;
-		clearButton.outerHTML = `<button class="evaluate" onclick="location.reload()">Retry?</button>`;
+		clearSlideshow.innerHTML = `<div class="question"> <p class="anim-typewriter" id="finalMsg"> You completed ${count} </p> <p class="anim-typewriter"  id="finalMsg-score">Your score was ${currentScore}</p></div>`;
+		clearButton.outerHTML = `<button class="evaluate retry" onclick="location.reload()">Retry?</button>`;
 		
 		return null;
 	}
